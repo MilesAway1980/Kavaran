@@ -63,7 +63,7 @@ public class Map : MonoBehaviour {
 
 		newTile.setType (tileType);
 
-		GameObject tileObject = (GameObject)Instantiate(Resources.Load("Prefabs/Cube"));
+		GameObject tileObject = (GameObject)Instantiate(Resources.Load("Prefabs/Tile"));
 		tileObject.transform.position = new Vector2 (
 			posX, posY
 		);
