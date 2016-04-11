@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerSurroundings : MonoBehaviour {
+public class Surroundings : MonoBehaviour {
 
 	GameObject above;
 	GameObject below;
@@ -12,6 +12,9 @@ public class PlayerSurroundings : MonoBehaviour {
 	public float length;
 
 	bool onFloor;
+	bool wallRight;
+	bool wallLeft;
+	bool onCeiling;
 
 	// Use this for initialization
 	void Start () {
@@ -64,11 +67,26 @@ public class PlayerSurroundings : MonoBehaviour {
 			transform.position.y
 		);
 
-		onFloor = below.GetComponent<WallDetector> ().getContact ();		
+		onFloor = below.GetComponent<WallDetector> ().getContact ();
+		onCeiling = above.GetComponent<WallDetector> ().getContact ();
+		wallLeft = left.GetComponent<WallDetector> ().getContact ();
+		wallRight = right.GetComponent<WallDetector> ().getContact ();
 		
 	}
 
 	public bool getOnFloor() {
 		return onFloor;
+	}
+
+	public bool getOnCeiling() {
+		return onCeiling;
+	}
+
+	public bool getWallLeft() {
+		return wallLeft;
+	}
+
+	public bool getWallRight() {
+		return wallRight;
 	}
 }
